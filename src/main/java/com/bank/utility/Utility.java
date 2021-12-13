@@ -49,6 +49,10 @@ public class Utility extends ManageDriver {
     public void clickOnElement(WebElement element) {
         element.click();
     }
+    public void isDisplayed(WebElement element){
+        element.isDisplayed();
+    }
+
 
     /**
      * This method will get text from element
