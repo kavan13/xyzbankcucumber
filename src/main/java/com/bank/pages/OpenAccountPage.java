@@ -3,11 +3,15 @@ package com.bank.pages;
 import com.aventstack.extentreports.Status;
 
 import com.bank.utility.Utility;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class OpenAccountPage extends Utility {
+    private static final Logger log = LogManager.getLogger(OpenAccountPage.class.getName());
+
     public OpenAccountPage() {
         PageFactory.initElements(driver, this);
     }
@@ -33,31 +37,33 @@ public class OpenAccountPage extends Utility {
 
      public void selectCustomerName(String value){
          selectByValueFromDropDown(lcDropDownCustomer,value);
-
+         log.info("Select customer Name : " + lcDropDownCustomer.toString());
      }
      public void selectCurrency(String value){
          selectByValueFromDropDown(lcDropDownCurrency,value);
-
+         log.info("Select Currency : " + lcDropDownCurrency.toString());
      }
      public void clickOnProcessButton() {
          clickOnElement(lcButtonProcess);
-
+       //  log.info("Clicking on Process Button : " + lcButtonProcess.toString());
      }
      public void clickOnWithdraw(){
          clickOnElement(withdraw);
-
+         log.info("Clicking on withdraw : " + withdraw.toString());
      }
-    public void sendWithdrawAmount(String value){sendTextToElement(withdrawAmount,value);
-
+    public void sendWithdrawAmount(String value){
+         sendTextToElement(withdrawAmount,value);
+        log.info("Enter Withdraw amount : " + withdrawAmount.toString());
     }
 
     public void clickOnWithdrawTabButton(){
          clickOnElement(withdrawBtn);
-
+        log.info("Clicking on withdraw button : " + withdrawBtn.toString());
     }
 
     public String verifyMoneyWithdrawSuccessfullyMessage(){
          String message= getTextFromElement(verifyWithdarwText);
+        log.info("Verify Text withdraw successfully : " + verifyWithdarwText.toString());
         return message;
     }
 

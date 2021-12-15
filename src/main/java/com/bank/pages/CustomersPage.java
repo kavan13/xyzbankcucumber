@@ -3,11 +3,15 @@ package com.bank.pages;
 import com.aventstack.extentreports.Status;
 
 import com.bank.utility.Utility;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CustomersPage extends Utility {
+    private static final Logger log = LogManager.getLogger(CustomersPage.class.getName());
+
     public CustomersPage() {
         PageFactory.initElements(driver, this);
     }
@@ -41,20 +45,19 @@ public class CustomersPage extends Utility {
     }
     public void clickOnLogoutButton(){
         clickOnElement(lcTabLogout);
-
+        log.info("Clicking on logout link : " + lcTabLogout.toString());
     }
     public void verifyYourNameIsDisplayed(){
         isDisplayed(lcYourNameText);
-
+        log.info("verify Your name display : " + lcYourNameText.toString());
     }
     public void clickOnDepositeButton(){
         clickOnElement(lcButtonDeposit);
-
+        log.info("Clicking on Deposit Button : " + lcButtonDeposit.toString());
     }
     public void enterAmountYouWantToDeposit(String text){
         sendTextToElement(lcAmountInputBox,text);
-
-
+        log.info("Enter Amount to deposit : " + lcAmountInputBox.toString());
     }
     public String actualSuccessMsg(){
 
